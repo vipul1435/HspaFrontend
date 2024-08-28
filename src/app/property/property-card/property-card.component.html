@@ -1,0 +1,46 @@
+
+
+<div class="card shadow-lg">
+  <div class="img-wrapper" >
+      <img class=" card-img-top h-100 px-2 pt-2" src="assets/house2.jpg " alt="House">
+        <ul class="list-inline text-center buttons-list">
+          <li class="list-inline-item">
+            <button class="btn btn-secondary" routerLink="/property-detail/{{Property.Id}}">
+                <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+        </li>
+          <li class="list-inline-item">
+            <button class="btn btn-primary">
+                <i class="fa-regular fa-address-book"></i>
+            </button>
+        </li>
+        </ul>
+    </div>
+    <div class=" card-body">
+
+        <div class="container d-flex flex-column">
+            <div class="fw-bold fs-4 d-flex justify-content-center align-items-center text-primary">
+              {{Property.Type}}
+            </div>
+            <div class="fw-semibold fs-5">
+              {{Property.Name}}
+            </div>
+            <div class="d-flex flex-row justify-content-between">
+              <div class="data-box1">
+                <div>Available For:</div>
+                <div>Rent</div>
+              </div>
+              <div class="data-box2">
+                <div>Price:</div>
+                <div>{{Property.Price}}/Mon</div>
+              </div>
+            </div>
+
+        </div>
+
+        <!-- <div class="text-nowrap">4BHK Apartment</div>
+        <div> Name {{Property.Name}}</div>
+        <div> {{Property.Type}} </div>
+        <div> {{Property.Price}} </div> -->
+    </div>
+</div>

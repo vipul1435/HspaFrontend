@@ -1,0 +1,16 @@
+.card-header{
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: larger;
+    background-color: rgb(231, 254, 254);
+}
+
+.ng-invalid.ng-touched{
+    border-color: rgb(249, 101, 101);
+}
+
+.ng-valid{
+    border-color: rgb(69, 222, 69);
+}

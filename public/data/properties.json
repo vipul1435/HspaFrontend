@@ -1,0 +1,51 @@
+[
+  {
+    "Id":1,
+    "Name":"XYZ House",
+    "Price":12000,
+    "Type":"Apartment"
+  },
+  {
+    "Id":2,
+    "Name":"David's House",
+    "Price":10000,
+    "Type":"Flat"
+  },
+  {
+    "Id":3,
+    "Name":"Singh House",
+    "Price":15000,
+    "Type":"PG"
+  },
+  {
+    "Id":4,
+    "Name":"Crazy House",
+    "Price":6000,
+    "Type":"Apartment"
+  },
+  {
+    "Id":5,
+    "Name":"My House",
+    "Price":9000,
+    "Type":"Flat"
+  },
+  {
+    "Id":6,
+    "Name":"Harry's House",
+    "Price":12000,
+    "Type":"Apartment"
+  },
+  {
+    "Id":7,
+    "Name":"ABC House",
+    "Price":16000,
+    "Type":"Flat"
+  },
+  {
+    "Id":8,
+    "Name":"Horror House",
+    "Price":8000,
+    "Type":"PG"
+  }
+]
+

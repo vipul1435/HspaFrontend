@@ -1,0 +1,10 @@
+.dropdown-position{
+    background-color: beige;
+    position: absolute;
+    left: -120px;
+    
+}
+
+.prop-icon{
+    margin-right: 10px;
+}

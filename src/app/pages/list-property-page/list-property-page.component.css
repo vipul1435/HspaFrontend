@@ -1,0 +1,49 @@
+.form-header{
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    font-size: xx-large;
+    color: rgb(8, 8, 9);
+    background-color: rgb(229, 241, 252);
+}
+
+.ng-invalid.ng-touched{
+    border-color: rgb(249, 101, 101);
+}
+
+.ng-valid{
+    border-color: rgb(69, 222, 69);
+}
+
+.error-msg{
+    color: red;
+}
+
+.image-box{
+    min-height: 40vh;
+    border: 1px dotted grey;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form-wrapper{
+   
+   display: flex;
+   
+   margin-top: 50px;
+   flex-direction: row-reverse;
+}
+
+.nav-item{
+    border-bottom: 1px solid rgb(122, 121, 121);
+    font-size: small;
+}
+
+.nav-item > .active{
+    border-bottom: 2px solid rgb(0, 51, 255);
+    background-color: aliceblue;
+}
+
+.nav-item > .nav-link{
+    color: black;
+}

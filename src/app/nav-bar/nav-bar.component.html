@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="" >Property Sell</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLink="/" routerLinkActive="active">Buy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/sell" routerLinkActive="active">Rent</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/list-property" routerLinkActive="active">List Property</a>  
+          </li>         
+        </ul>
+        <ul class="navbar-nav mx-2 ">
+          <li class="nav-item">
+            <a *ngIf="!isloggedinUser" class="nav-link" routerLink="/register-user" routerLinkActive="active">Register</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="!isloggedinUser" class="nav-link" routerLink="/login-user" routerLinkActive="active">Login</a>
+          </li> 
+          <li class="nav-item">
+            <!-- <a *ngIf="isloggedinUser" class="nav-link" routerLink="/login-user" routerLinkActive="active" (click)="changeStatus()" >Log out</a> -->
+            <div class="dropdown {{show}}" (mouseleave)="handleCurserOut()" (mouseenter)="handleCursorIn()">
+              <button class="btn btn-secondary rounded-5"><i class="fa-solid fa-user"></i></button>
+              <div class="dropdown-menu {{show}} dropdown-position" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#"> <i class="fa-regular fa-user prop-icon"></i>Profile</a>
+                <a class="dropdown-item" href="#"> <i class="fa-solid fa-gear prop-icon"></i>Setting</a>
+                <a class="dropdown-item" href="#"> <i class="fa-solid fa-right-from-bracket prop-icon"></i>Log out</a>
+              </div>
+            </div>
+          </li>        
+        </ul>
+      </div>
+    </div>
+  </nav>

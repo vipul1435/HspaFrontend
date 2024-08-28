@@ -1,0 +1,13 @@
+.nav-link{
+    font-size: small;
+    font-weight: normal;
+    /* border-bottom: 1px solid black; */
+    color: rgb(13, 110, 253);
+}
+
+.nav > .active{
+    border: none;
+    color: black;
+    font-weight: bold;
+    border-bottom: 3px solid rgb(13, 110, 253);
+}
