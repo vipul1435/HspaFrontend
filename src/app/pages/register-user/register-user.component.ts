@@ -4,6 +4,7 @@ import { CommonModule, NgIf } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import * as alertify from "alertifyjs"
 import { RouterLink } from '@angular/router';
+import { RegisterUser } from '../../model/User';
 
 @Component({
   selector: 'app-register-user',
@@ -66,12 +67,24 @@ export class RegisterUserComponent implements OnInit{
     return this.registrationForm.get('Cpassword');
   }
 
-  User:any={};
+  registerUser!:RegisterUser;
   onSubmit(){
-    Object.assign(this.User,this.registrationForm.value);
-    this.userService.addUsers(this.User);
-    this.registrationForm.reset();
-    alertify.success("User reistered successfully.")
+    // Object.assign(
+    this.registerUser = {
+      UserName: this.userName?.value,
+      Email:this.email?.value,
+      Password:this.password?.value
+    }
+    // );
+    // console.log(this.registerUser)
+    this.userService.RegisterUserMethod(this.registerUser).subscribe({
+      next:(response) => {
+        console.log(response);
+        localStorage.setItem('Token',response.token);
+        localStorage.setItem('Email',response.email);
+        alertify.success("User Register successfully")
+      }
+    });
   }
 
   

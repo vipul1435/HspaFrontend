@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginResponse, LoginUser } from '../model/User';
+import { LoginResponse, LoginUser, RegisterUser } from '../model/User';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,9 +12,19 @@ export class UserService {
     private http:HttpClient
   ) { }
 
-    LoginUserMethod(user:any):Observable<LoginResponse>{
+    LoginUserMethod(user:LoginUser):Observable<LoginResponse>{
       return this.http.post<LoginResponse>("https://localhost:44365/api/Account/login",user);
     }
+
+
+
+    RegisterUserMethod(user:RegisterUser):Observable<any>{
+      return this.http.post<any>("https://localhost:44365/api/Account/register",user);
+    }
+
+
+
+    /* Login for storing data in Local storage and fetch from it 
     addUsers(user:any){
       let users = [];
       let preSavedUsers = localStorage.getItem('Users');
@@ -28,7 +38,6 @@ export class UserService {
           localStorage.setItem('Users',JSON.stringify(users));
           }
           
-          /* Login for storing data in Local storage and fetch from it 
   loginUser(user:any) : boolean {
     let preSavedUsers = localStorage.getItem('Users');
     if(preSavedUsers){

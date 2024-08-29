@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import * as alertify from "alertifyjs"
-import { LoginResponse } from '../../model/User';
+import { LoginResponse, LoginUser } from '../../model/User';
 
 @Component({
   selector: 'app-login-user',
@@ -16,7 +16,7 @@ import { LoginResponse } from '../../model/User';
 export class LoginUserComponent implements OnInit{
 
   loginForm!:FormGroup;
-
+  loginUser!:LoginUser;
   constructor(private fb:FormBuilder,
     private userService:UserService,
   ){}
@@ -41,24 +41,20 @@ export class LoginUserComponent implements OnInit{
   }
 
   onSubmit(){
-  
-    let user = {
+    
+    this.loginUser = {
       Email:this.email?.value,
       Password:this.password?.value,
-    }
+    };
 
-    console.log(user);
-    this.userService.LoginUserMethod(user).subscribe(
+    console.log(this.loginUser);
+    this.userService.LoginUserMethod(this.loginUser).subscribe(
      {next: (response) => {
         console.log(response);
         localStorage.setItem('Token',response.token);
         localStorage.setItem('Email',response.email);
         alertify.success("User Logged in successfully.");
-      }, 
-     error: (error) =>{
-        console.log(error)
-      },
-      complete:()=>console.log("done")
+      }
     }
     )
   }
