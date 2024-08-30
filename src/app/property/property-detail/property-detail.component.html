@@ -1,4 +1,4 @@
-<div class="col-7 mx-auto mt-5" >
+<div class="col-7 mx-auto mt-5">
 
     <div class="row shadow-sm">
         <div class="col-4 p-0">
@@ -7,7 +7,28 @@
                     <img class="card-img-top" src="assets/house2.jpg">
                 </div>
                 <div class="card-body">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio in nulla veritatis vero. Dolor doloremque natus ea, facere reprehenderit inventore. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, ipsum?
+                    <div>
+                        <div class="fw-bold fs-2" style="color: rgb(13, 110, 253);">{{property?.name}}</div>
+                        <div class="fw-bold">{{property?.bhk}} BHK {{property?.propertyType}} &#64;{{property?.price}} INR</div>
+                        <div class="fw-bold">in {{property?.city}} ({{property?.country}})</div>
+                        <hr>
+                        <div class="d-flex flex-row">
+                            <div class="fw-bold" style="margin-right: 5px;">Built Area:</div>
+                            <div>{{property?.builtArea}} Sq. Ft.</div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="fw-bold" style="margin-right: 5px;">Carpet Area:</div>
+                            <div>{{property?.carpetArea}} Sq. Ft.</div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="fw-bold" style="margin-right: 5px;">Furnishing Type:</div>
+                            <div>{{property?.funrnishedType}}</div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="fw-bold" style="margin-right: 5px;">Available For:</div>
+                            <div>{{property?.sellOrRent}}</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <div class="btn-group d-flex">
@@ -17,18 +38,25 @@
                 </div>
             </div>
         </div>
+
         <div class="col-8 card shadow-sm">
-            <nav >
+            <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <button class="nav-link active" id="nav-overview-tab" data-bs-toggle="tab" data-bs-target="#nav-overview" type="button" role="tab" aria-controls="nav-overview" aria-selected="true">Overview</button>
-                  <button class="nav-link" id="nav-address-tab" data-bs-toggle="tab" data-bs-target="#nav-address" type="button" role="tab" aria-controls="nav-address" aria-selected="false">Address</button>
-                  <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab" data-bs-target="#nav-photos" type="button" role="tab" aria-controls="nav-photos" aria-selected="false">Photos</button>
-                  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+                    <button class="nav-link active" id="nav-overview-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-overview" type="button" role="tab" aria-controls="nav-overview"
+                        aria-selected="true">Overview</button>
+                    <button class="nav-link" id="nav-address-tab" data-bs-toggle="tab" data-bs-target="#nav-address"
+                        type="button" role="tab" aria-controls="nav-address" aria-selected="false">Address</button>
+                    <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab" data-bs-target="#nav-photos"
+                        type="button" role="tab" aria-controls="nav-photos" aria-selected="false">Photos</button>
+                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                        type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
                 </div>
-              </nav>
-              <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
-                    i am overview
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-overview" role="tabpanel"
+                    aria-labelledby="nav-overview-tab">
+                   <app-overview [property]="property"/>
                 </div>
                 <div class="tab-pane fade" id="nav-address" role="tabpanel" aria-labelledby="nav-address-tab">
                     i am address
@@ -39,8 +67,8 @@
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                     i am contact
                 </div>
-              </div>
+            </div>
         </div>
-        
+
     </div>
 </div>

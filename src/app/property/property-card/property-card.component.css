@@ -5,6 +5,26 @@
     opacity: 0.5;
 }
 
+.card{
+    background-color: white;
+    border: none;
+}
+
+.make-bold{
+    font-weight:600;
+}
+
+.divider{
+    margin-inline: 5px;
+    height: 15px;
+    margin-block: auto;
+    
+}
+
+.inside-card{
+    border: 1px solid rgb(225, 220, 220);
+    
+}
 .card img{
     transform: scale(1,1);
     transition-duration: 500ms;

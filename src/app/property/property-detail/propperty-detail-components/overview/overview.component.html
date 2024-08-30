@@ -1,0 +1,46 @@
+<div class="px-3 py-2">
+    <div class="fw-bold fs-3">Overview</div>
+    <hr class="my-2">
+    <div class="row">
+        <div class=" col-6">
+            <div  class="d-flex flex-column">
+                <div class="fw-semibold">Project Name</div>
+                <div style="color: grey;">{{property?.name}}</div>
+            </div>
+            <div  class="d-flex flex-column mt-3">
+                <div class="fw-semibold">Floor Number</div>
+                <div style="color: grey;">{{property?.floor}} of {{property?.numberOfFloors}}</div>
+            </div>
+            <div  class="d-flex flex-column mt-3">
+                <div class="fw-semibold">Age of Property</div>
+                <div style="color: grey;">{{property?.ageOfProperty}} Years</div>
+            </div>
+            <div  class="d-flex flex-column mt-3">
+                <div class="fw-semibold">Posession</div>
+                <div style="color: grey;">{{property?.availableFrom | date}}</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="d-flex flex-column">
+                <div class="fw-semibold">Main Entrance</div>
+                <div style="color: grey;">{{property?.mainEntrance}}</div>
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <div class="fw-semibold">Gated Community</div>
+                <div style="color: grey;">{{property?.gatedCommunity}}</div>
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <div class="fw-semibold">Security Deposit</div>
+                <div style="color: grey;">{{property?.security}} INR</div>
+            </div>
+            <div class="d-flex flex-column mt-3">
+                <div class="fw-semibold">Maintenance</div>
+                <div style="color: grey;">{{property?.maintenance}} INR</div>
+            </div>
+        </div>
+    </div>
+    <div  class="d-flex flex-column  mt-2">
+        <div class="fw-semibold">About Property</div>
+        <div style="color: grey;">{{property?.description}}</div>
+    </div>
+</div>
