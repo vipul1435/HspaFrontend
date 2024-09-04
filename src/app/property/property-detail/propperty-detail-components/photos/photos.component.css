@@ -1,0 +1,16 @@
+/* Default styles */
+i {
+    opacity: 0.5; /* Reduced opacity by default */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for both size and opacity */
+    background-color: rgb(177, 255, 170);
+    padding-inline: 5px;
+    padding-block: 10px;
+    border-radius: 10px 10px;
+    
+}
+
+/* Hover effect */
+i:hover {
+    opacity: 1; /* Increase opacity on hover */
+    transform: scale(1.1); /* Increase size on hover */
+}

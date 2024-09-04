@@ -1,6 +1,8 @@
 import {NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { LoginStatusService } from '../services/loginStatus.service';
+import * as alertify from "alertifyjs";
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,12 +15,21 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css',
 })
-export class NavBarComponent {
-  isloggedinUser:boolean = false;
+export class NavBarComponent implements OnInit{
+  isUserLoggedIn:boolean = false;
 
-  changeStatus(){
-    this.isloggedinUser = !this.isloggedinUser;
+  constructor(
+    private loginStatusService:LoginStatusService
+  ){
+
   }
+
+  ngOnInit(): void {
+    this.loginStatusService.loginStatus.subscribe(state=>{
+      this.isUserLoggedIn = state;
+    })
+  }
+
 
   show:String="";
   handleCursorIn(){
@@ -29,5 +40,10 @@ export class NavBarComponent {
     this.show="";
   }
 
+  logoutUser(){
+    localStorage.clear();
+    this.loginStatusService.updateState(false);
+    alertify.success("Log out successfully")
+  }
   
 }

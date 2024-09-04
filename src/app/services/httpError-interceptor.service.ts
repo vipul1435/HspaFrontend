@@ -8,11 +8,15 @@ import { Injectable } from '@angular/core';
 import { catchError, concat, concatMap, Observable, of, retryWhen, throwError } from 'rxjs';
 import * as alertify from 'alertifyjs';
 import { ErrorCode } from '../enums/enums';
+import { LoginStatusService } from './loginStatus.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class HttpErrorInterceptorService implements HttpInterceptor {
+    constructor(
+        private loginStatusService:LoginStatusService
+    ){}
     
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<any> {
         console.log('Interceptor has been started');
@@ -20,16 +24,17 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
 
             retryWhen( error =>
                 error.pipe(
+                    
                     concatMap((checkError:HttpErrorResponse, count:number)=>{
 
                         // retry in case of server down
-                        if(checkError.status===ErrorCode.serverDown && count<=5){
+                        if(checkError.status===ErrorCode.serverDown && count<=2){
                             return of(checkError);
                         }
 
 
                         // in case to unauthorized error 
-                        if(checkError.status===ErrorCode.unauthorised && count<=5){
+                        if(checkError.status===ErrorCode.unauthorised && count<=2){
                             return of(checkError);
                         }
 
@@ -52,9 +57,12 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
     setError(error: HttpErrorResponse):string{
         let errorMessage = "Unknown error occured";
         if(error.error instanceof ErrorEvent){
-            errorMessage = error.error.message;
+            errorMessage = error.error?.message;
         } else if(error.status!==0) {
-            errorMessage = error.error.errorMessage;
+            errorMessage = error.error?.errorMessage;
+        }
+        if(errorMessage==null){
+            errorMessage = error.error;
         }
         return errorMessage;
     }

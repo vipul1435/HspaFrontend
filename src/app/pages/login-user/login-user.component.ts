@@ -1,10 +1,11 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import * as alertify from "alertifyjs"
-import { LoginResponse, LoginUser } from '../../model/User';
+import { LoginUser } from '../../model/User';
+import { LoginStatusService } from '../../services/loginStatus.service';
 
 @Component({
   selector: 'app-login-user',
@@ -19,6 +20,8 @@ export class LoginUserComponent implements OnInit{
   loginUser!:LoginUser;
   constructor(private fb:FormBuilder,
     private userService:UserService,
+    private loginStatusService:LoginStatusService,
+    private router:Router
   ){}
 
   ngOnInit(): void {
@@ -50,11 +53,13 @@ export class LoginUserComponent implements OnInit{
     console.log(this.loginUser);
     this.userService.LoginUserMethod(this.loginUser).subscribe(
      {next: (response) => {
-        console.log(response);
+        this.loginStatusService.updateState(true);
         localStorage.setItem('Token',response.token);
         localStorage.setItem('Email',response.email);
+        localStorage.setItem('Id',`${response.id}`);
         alertify.success("User Logged in successfully.");
-      }
+        this.router.navigate(["/"]);
+      },
     }
     )
   }

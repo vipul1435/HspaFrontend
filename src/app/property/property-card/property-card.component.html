@@ -4,7 +4,8 @@
   <div class="inside-card rounded-2">
 
     <div class="img-wrapper" >
-      <img class=" card-img-top h-100" src="assets/house2.jpg " alt="House">
+      <img *ngIf="!Property.photoUrl" class=" card-img-top h-100" src="assets/house2.jpg" alt="House">
+      <img *ngIf="Property.photoUrl" class=" card-img-top h-100" src={{Property.photoUrl}} alt="House">
       <ul class="list-inline text-center buttons-list">
         <li class="list-inline-item">
           <button class="btn btn-secondary" routerLink="/property-detail/{{Property.id}}">
@@ -33,7 +34,7 @@
           </div>
           <div class="vr divider"></div>
           <div class="">
-            {{Property.readyToMove==="Yes"?"Ready to move":"Not ready to move"}}
+            {{Property.readyToMove==="Yes"?"Ready to move":"Not Ready"}}
           </div>
         </div>
         <hr class=" m-1">

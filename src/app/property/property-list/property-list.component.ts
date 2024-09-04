@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PropertyCardComponent } from "../property-card/property-card.component";
 import { CommonModule } from '@angular/common';
 import { GetDataService } from '../../services/get-data.service';
@@ -14,6 +14,8 @@ import { PropertyService } from '../../services/property.service';
 })
 export class PropertyListComponent implements OnInit {
 
+  @Input() buySell!:string;
+
   properties: Array<PropertyInter>=[]
 
   constructor(
@@ -27,7 +29,7 @@ export class PropertyListComponent implements OnInit {
   //       this.properties = data
   //   }   
   // )
-  this.propertyService.getPropertiesList("Sell").subscribe(res=>
+  this.propertyService.getPropertiesList(this.buySell).subscribe(res=>
   {
     console.log(res)
     this.properties = res

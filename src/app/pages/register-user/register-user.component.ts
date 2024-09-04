@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validatio
 import { CommonModule, NgIf } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import * as alertify from "alertifyjs"
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { RegisterUser } from '../../model/User';
 
 @Component({
@@ -18,7 +18,8 @@ export class RegisterUserComponent implements OnInit{
   registrationForm!:FormGroup;
 
   constructor(private fb:FormBuilder, 
-    private userService:UserService
+    private userService:UserService,
+    private router:Router
   ){}
 
   ngOnInit(): void {
@@ -79,10 +80,11 @@ export class RegisterUserComponent implements OnInit{
     // console.log(this.registerUser)
     this.userService.RegisterUserMethod(this.registerUser).subscribe({
       next:(response) => {
-        console.log(response);
         localStorage.setItem('Token',response.token);
         localStorage.setItem('Email',response.email);
-        alertify.success("User Register successfully")
+        localStorage.setItem('Id',`${response.id}`);
+        alertify.success("User Register successfully");
+        this.router.navigate(["/"]);
       }
     });
   }

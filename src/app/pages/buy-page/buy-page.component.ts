@@ -9,5 +9,5 @@ import { PropertyListComponent } from '../../property/property-list/property-lis
   styleUrl: './buy-page.component.css'
 })
 export class BuyPageComponent {
-
+  buySell:string = "Sell";
 }

@@ -74,10 +74,10 @@
                                 <div class="btn-group" *ngFor="let item of propertyType" role="group"
                                     aria-label="Basic radio toggle button group">
                                     <span style="margin-right: 10px;">
-                                        <input type="radio" class="btn-check" formControlName="type" value="{{item}}"
-                                            id="{{item}}" autocomplete="off">
+                                        <input type="radio" class="btn-check" formControlName="propertyTypeId" value="{{item.id}}"
+                                            id="{{item.name}}" autocomplete="off">
                                         <label class="btn btn-outline-info btn-sm my-2 rounded-2"
-                                            for="{{item}}">{{item}}</label>
+                                            for="{{item.name}}">{{item.name}}</label>
                                     </span>
                                 </div>
                                 <!-- <span *ngIf="!propType.valid && propType.touched" class="error-msg">Please enter a valid Type.</span> -->
@@ -88,10 +88,10 @@
                                 <div class="btn-group" *ngFor="let item of furnishTypeData" role="group"
                                     aria-label="Basic radio toggle button group">
                                     <span style="margin-right: 10px;">
-                                        <input type="radio" class="btn-check" formControlName="furnishedType"
-                                            value="{{item}}" id="{{item}}" autocomplete="off">
+                                        <input type="radio" class="btn-check" formControlName="funrnishedTypeId"
+                                            value="{{item.id}}" id="{{item.name}}" autocomplete="off">
                                         <label class="btn btn-outline-info btn-sm my-2 rounded-2"
-                                            for="{{item}}">{{item}}</label>
+                                            for="{{item.name}}">{{item.name}}</label>
                                     </span>
                                 </div>
                                 <!-- <span *ngIf="!propPrice.valid && propPrice.touched" class="error-msg">Please enter valid Price.</span> -->
@@ -99,8 +99,8 @@
 
                             <div class="form-group col-12">
                                 <div>City</div>
-                                <select class="form-control" formControlName="city" >
-                                    <option *ngFor="let city of cities" value="{{city.name}}">{{city.name}}</option>
+                                <select class="form-control" formControlName="cityId" >
+                                    <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>
                                 </select>
                                 <!-- <span *ngIf="!propPrice.valid && propPrice.touched" class="error-msg">Please enter valid Price.</span> -->
                             </div>
@@ -115,7 +115,7 @@
                         <div class="mt-3">
                             <div class="form-group col-12">
                                 <label for="name" class="my-1">Price (in INR)</label>
-                                <input type="text" class="form-control" formControlName="price" [(ngModel)]="propertyCapturedValues.Price"
+                                <input type="number" class="form-control" formControlName="price" [(ngModel)]="propertyCapturedValues.Price"
                                    >
                                 <!-- <span *ngIf="!propName.valid && propName.touched" class="error-msg">Please enter a valid Name.</span> -->
                             </div>
@@ -249,19 +249,28 @@
                     <div class="tab-pane fade" [class.active]="selectedTab==4" [class.show]="selectedTab==4"
                         id="upload-images" role="tabpanel">
                         <div class="mt-3">
-                            <div class="image-box">
+                            <div class="image-box card">
 
                                 <div class="form-group col-12">
                                     <label for="name" class="my-1">Upload Images</label>
-                                    <input type="file" class="form-control">
+                                    <input type="file" formControlName="image" (change)="onFileSelected($event)">
                                     <!-- <span *ngIf="!propName.valid && propName.touched" class="error-msg">Please enter a valid Name.</span> -->
                                 </div>
+                                    <img *ngIf="imagePreview" class="card-img-top mt-2 rounded-2" style="max-height: 400px;" [src]="imagePreview" alt="">
                             </div>
-                            <div class="col-12 mt-3 d-flex justify-content-center">
+                            <div *ngIf="!isUploading" class="col-12 mt-3 d-flex justify-content-center">
                                 <button class="btn btn-primary w-100 " style="margin-right: 5px;"
                                     (click)="navigateTab(-1)">Previous</button>
-                                <button class="btn btn-primary w-100" style="margin-left: 5px;"
+                                <button class="btn btn-outline-success w-100" style="margin-left: 5px;"
                                     (click)="onSubmit()">Submit</button>
+                            </div>
+                            <div *ngIf="isUploading" class="col-12 mt-3 d-flex justify-content-center">
+                                <button disabled class="btn btn-info w-100 " >
+                                    <span class="spinner-border spinner-border-sm mx-2" role="status" aria-hidden="true"></span>
+                                    <span class="fw-bold">
+                                        Please wait...
+                                    </span>
+                                    </button>
                             </div>
                         </div>
                     </div>

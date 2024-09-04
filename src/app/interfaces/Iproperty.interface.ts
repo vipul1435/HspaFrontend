@@ -1,3 +1,5 @@
+import { Photo } from "./IPhoto.interface";
+
 export interface PropertyDetailResponse {
     id: number;
     name: string | null;
@@ -21,5 +23,32 @@ export interface PropertyDetailResponse {
     propertyType: string;
     readyToMove: string;
     security: number;
-    sellOrRent: string;    
+    sellOrRent: string;
+    photos:Photo[];
+    postedBy:number  
+}
+
+export interface ProppretyDetailRequest{
+    SellOrRent: string;
+    Bhk: number;
+    Name: string;
+    PropertyTypeId: number;
+    FunrnishedTypeId: number;
+    CityId: number;
+    Price: number;
+    Maintenance: number;
+    Security: number;
+    BuiltArea: number;
+    CarpetArea: number;
+    Address: string;
+    Floor: number;
+    NumberOfFloors: number;
+    Landmark: string;
+    ReadyToMove: string;
+    AvailableFrom: Date;
+    AgeOfProperty: number;
+    GatedCommunity: string;
+    MainEntrance: string;
+    Description: string;
+    PostedBy: number;      
 }

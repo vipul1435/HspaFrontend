@@ -10,6 +10,7 @@ export interface LoginUser{
 }
 
 export interface LoginResponse{
+    id:number,
     email:string,
     token:string
 }
