@@ -1,6 +1,5 @@
-<div class="form-wrapper container">
-    <app-property-card [Property]="propertyCapturedValues"></app-property-card>
-    <div class="card container px-0 col-6 shadow-lg">
+<div class="form-wrapper container row mx-auto mt-4">
+    <div class="card container col-8 shadow-lg">
         <div class="card-header form-header">List new property</div>
         <div class="card-body">
             <form [formGroup]="propertyDataForm">
@@ -121,22 +120,22 @@
                             </div>
                             <div class="form-group col-12">
                                 <label for="name" class="my-1">Maintenance (in INR)</label>
-                                <input type="text" class="form-control" formControlName="maintenance">
+                                <input type="number" class="form-control" formControlName="maintenance">
                                 <!-- <span *ngIf="!propName.valid && propName.touched" class="error-msg">Please enter a valid Name.</span> -->
                             </div>
                             <div class="form-group col-12">
                                 <label for="name" class="my-1">Security (in INR)</label>
-                                <input type="text" class="form-control" formControlName="security">
+                                <input type="number" class="form-control" formControlName="security">
                                 <!-- <span *ngIf="!propName.valid && propName.touched" class="error-msg">Please enter a valid Name.</span> -->
                             </div>
                             <div class="form-group col-12">
                                 <label for="name" class="my-1">Built Area (in sqft.)</label>
-                                <input type="text" class="form-control" formControlName="builtArea">
+                                <input type="number" class="form-control" formControlName="builtArea">
                                 <!-- <span *ngIf="!propName.valid && propName.touched" class="error-msg">Please enter a valid Name.</span> -->
                             </div>
                             <div class="form-group col-12">
                                 <label for="name" class="my-1">Carpet Area (in sqft.)</label>
-                                <input type="text" class="form-control" formControlName="carpetArea">
+                                <input type="number" class="form-control" formControlName="carpetArea">
                                 <!-- <span *ngIf="!propName.valid && propName.touched" class="error-msg">Please enter a valid Name.</span> -->
                             </div>
                             <div class="col-12 mt-3 d-flex justify-content-center">
@@ -157,12 +156,12 @@
                             </div>
                             <div class="form-group col-12">
                                 <label for="name" class="my-1">Floor</label>
-                                <input type="text" class="form-control" formControlName="floor">
+                                <input type="number" class="form-control" formControlName="floor">
                                 <!-- <span *ngIf="!propName.valid && propName.touched" class="error-msg">Please enter a valid Name.</span> -->
                             </div>
                             <div class="form-group col-12">
                                 <label for="name" class="my-1">Number of Floors</label>
-                                <input type="text" class="form-control" formControlName="numberOfFloors">
+                                <input type="number" class="form-control" formControlName="numberOfFloors">
                                 <!-- <span *ngIf="!propName.valid && propName.touched" class="error-msg">Please enter a valid Name.</span> -->
                             </div>
                             <div class="form-group col-12">
@@ -202,7 +201,7 @@
                             </div>
                             <div class="form-group col-12 my-2">
                                 <label for="name" class="my-1">Age of Property</label>
-                                <input type="text" class="form-control" formControlName="ageOfProperty">
+                                <input type="number" class="form-control" formControlName="ageOfProperty">
                                 <!-- <span *ngIf="!propName.valid && propName.touched" class="error-msg">Please enter a valid Name.</span> -->
                             </div>
                             <div class="form-group col-12 my-2">

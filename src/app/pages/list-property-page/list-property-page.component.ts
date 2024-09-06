@@ -15,7 +15,7 @@ import * as alertify from "alertifyjs";
 @Component({
   selector: 'app-list-property-page',
   standalone: true,
-  imports: [FormsModule, NgIf, ReactiveFormsModule, NgFor, PropertyCardComponent],
+  imports: [FormsModule, NgIf, ReactiveFormsModule, NgFor],
   templateUrl: './list-property-page.component.html',
   styleUrl: './list-property-page.component.css'
 })
